@@ -1,0 +1,60 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Clarion scrape criteria — edit this file to control what gets added to the DB.
+//
+// A trial is ACCEPTED only if it passes EVERY enabled rule below; otherwise
+// it's logged to the `rejected` table with the reason(s). Read on every run.
+// Comments (// and /* */) are allowed. Omit a key to use its built-in default.
+//
+// Disable a rule:  array -> []   number -> 0   boolean -> false
+// ─────────────────────────────────────────────────────────────────────────
+{
+  // Only interventional studies (excludes observational registries).
+  "interventionalOnly": true,
+
+  // Indication: a condition must contain one of these (case-insensitive).
+  "indicationIncludes": ["ovarian"],
+
+  // ── Rule 1: Phase 3 only ─────────────────────────────────────────────────
+  // A Phase 2/3 trial still counts (it contains a Phase 3 component).
+  "allowedPhases": ["PHASE3"],
+
+  // ── Rule 1 (cont.): active or planned — NOT completed/terminated ─────────
+  // Include-list of statuses to KEEP. Everything else (COMPLETED, TERMINATED,
+  // WITHDRAWN, SUSPENDED, UNKNOWN) is rejected.
+  "allowedStatuses": [
+    "NOT_YET_RECRUITING",
+    "RECRUITING",
+    "ENROLLING_BY_INVITATION",
+    "ACTIVE_NOT_RECRUITING"
+  ],
+
+  // ── Rule 2: industry sponsored ───────────────────────────────────────────
+  // Lead sponsor class. Other CT.gov classes: NIH, FED, OTHER_GOV, INDIV,
+  // NETWORK, OTHER, AMBIG, UNKNOWN.
+  "sponsorClassAnyOf": ["INDUSTRY"],
+
+  // ── Rule 3: has a US, EU, UK, or Swiss trial site ────────────────────────
+  // Accept if AT LEAST ONE site is in one of these countries (so a US+China
+  // trial passes; a China-only trial is rejected). Trials with no listed
+  // locations are rejected.
+  "siteCountriesAnyOf": [
+    "United States", "United Kingdom", "Switzerland",
+    "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czechia",
+    "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany",
+    "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania",
+    "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania",
+    "Slovakia", "Slovenia", "Spain", "Sweden"
+  ],
+
+  // No enrollment floor for now (Phase 3 trials are large anyway).
+  "minEnrollment": 0,
+
+  // Don't require a completion date (planned trials often lack one).
+  "requirePrimaryCompletionDate": false,
+
+  // ── Rule 4: drop stale trials ────────────────────────────────────────────
+  // Reject trials whose primary completion date is more than this many months
+  // in the past (effectively read out, even if still marked "active").
+  // Undated and future-dated trials are KEPT. 0 = disabled.
+  "maxMonthsPastCompletion": 6
+}
