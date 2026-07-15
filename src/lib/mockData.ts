@@ -1,6 +1,6 @@
-// Mock data for the P0 skeleton. Replace with CT.gov ingestion + a database.
-// The ovarian workspace is the fleshed-out demo path; NSCLC is a lighter second
-// workspace to show the list view.
+// Workspace definitions + fallback mock data. The ovarian workspace's real
+// trials/alerts come from the scraped snapshot (see src/lib/db.ts); the mock
+// trials/alerts below are only a fallback if the snapshot is empty.
 
 import type {
   Alert,
@@ -16,14 +16,6 @@ export const workspaces: Workspace[] = [
     indication: "Ovarian cancer",
     ctgovQuery: "ovarian cancer",
     createdAt: "2026-05-02",
-    lastSyncedAt: "2026-07-14T08:00:00Z",
-  },
-  {
-    id: "ws_nsclc",
-    name: "NSCLC — EGFR",
-    indication: "EGFR-mutant NSCLC",
-    ctgovQuery: "EGFR-mutant non-small cell lung cancer",
-    createdAt: "2026-06-11",
     lastSyncedAt: "2026-07-14T08:00:00Z",
   },
 ];
@@ -103,36 +95,6 @@ export const trials: Trial[] = [
     primaryCompletionDate: "2028-03-01",
     lastUpdated: "2026-07-02",
   },
-
-  // --- NSCLC workspace ---
-  {
-    nctId: "NCT05224466",
-    workspaceId: "ws_nsclc",
-    title: "Phase 2 Study of Novel ADC in EGFR-Mutant NSCLC",
-    sponsor: "J&J",
-    intervention: "JNJ-ZZZZ",
-    mechanism: "EGFR-MET bispecific ADC",
-    indication: "EGFR-mutant NSCLC",
-    phase: "Phase 2",
-    status: "Recruiting",
-    enrollmentCount: 180,
-    primaryCompletionDate: "2027-03-01",
-    lastUpdated: "2026-07-12",
-  },
-  {
-    nctId: "NCT05119900",
-    workspaceId: "ws_nsclc",
-    title: "Third-Generation EGFR TKI in First-Line EGFR-Mutant NSCLC",
-    sponsor: "AstraZeneca",
-    intervention: "Osimertinib next-gen",
-    mechanism: "EGFR TKI",
-    indication: "EGFR-mutant NSCLC",
-    phase: "Phase 3",
-    status: "Active, not recruiting",
-    enrollmentCount: 680,
-    primaryCompletionDate: "2026-11-30",
-    lastUpdated: "2026-07-09",
-  },
 ];
 
 // Client's private tracked assets, per workspace.
@@ -144,13 +106,6 @@ export const portfolioAssets: PortfolioAsset[] = [
     mechanism: "Anti-FRα ADC",
     phase: "Phase 2",
     notes: "Lead asset; platinum-resistant ovarian.",
-  },
-  {
-    id: "pa_2",
-    workspaceId: "ws_nsclc",
-    name: "ASSET-220 (internal)",
-    mechanism: "EGFR-MET bispecific ADC",
-    phase: "Phase 1/2",
   },
 ];
 
@@ -218,24 +173,6 @@ export const alerts: Alert[] = [
     },
     createdAt: "2026-07-11T12:00:00Z",
     read: true,
-  },
-  {
-    id: "al_101",
-    workspaceId: "ws_nsclc",
-    type: "new_trial",
-    severity: "high",
-    title: "New J&J Phase 2 ADC trial posted — overlaps ASSET-220",
-    summary:
-      "NCT05224466 newly registered: EGFR-MET bispecific ADC in EGFR-mutant NSCLC.",
-    nctId: "NCT05224466",
-    sponsor: "J&J",
-    overlap: {
-      matchedAsset: "ASSET-220 (internal)",
-      reason:
-        "Same indication (EGFR-mutant NSCLC) and same mechanism class (EGFR-MET bispecific ADC).",
-    },
-    createdAt: "2026-07-12T11:40:00Z",
-    read: false,
   },
 ];
 
