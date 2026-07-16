@@ -38,13 +38,33 @@ export function writeSnapshot(nowIso = new Date().toISOString()) {
     )
     .all();
 
+  // comms (EDGAR filings) may not exist yet if edgar.mjs has never run.
+  const hasComms = db
+    .prepare(`SELECT name FROM sqlite_master WHERE type='table' AND name='comms'`)
+    .get();
+  const comms = hasComms
+    ? db
+        .prepare(
+          `SELECT nct_id, matched_term, source, cik, company, form, filed_date,
+                  item_codes, accession, doc_url, description, summary
+           FROM comms
+           ORDER BY filed_date DESC`
+        )
+        .all()
+    : [];
+
   db.close();
 
   mkdirSync(dirname(OUT_PATH), { recursive: true });
   writeFileSync(
     OUT_PATH,
-    JSON.stringify({ generatedAt: nowIso, trials, alerts }, null, 2)
+    JSON.stringify({ generatedAt: nowIso, trials, alerts, comms }, null, 2)
   );
 
-  return { trials: trials.length, alerts: alerts.length, path: OUT_PATH };
+  return {
+    trials: trials.length,
+    alerts: alerts.length,
+    comms: comms.length,
+    path: OUT_PATH,
+  };
 }

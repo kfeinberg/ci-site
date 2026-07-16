@@ -1,12 +1,15 @@
+import Link from "next/link";
 import type { Trial } from "@/lib/types";
 import { Chip } from "./Badge";
 
 export default function TrialTable({
   trials,
   overlapNctIds = new Set<string>(),
+  commCounts = {},
 }: {
   trials: Trial[];
   overlapNctIds?: Set<string>;
+  commCounts?: Record<string, number>;
 }) {
   return (
     <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
@@ -14,13 +17,14 @@ export default function TrialTable({
           long cells instead of overflowing (no side-to-side scroll). */}
       <table className="w-full table-fixed text-left text-sm">
         <colgroup>
-          <col className="w-[30%]" />
+          <col className="w-[26%]" />
+          <col className="w-[15%]" />
           <col className="w-[16%]" />
-          <col className="w-[18%]" />
-          <col className="w-[9%]" />
-          <col className="w-[13%]" />
+          <col className="w-[8%]" />
+          <col className="w-[12%]" />
           <col className="w-[7%]" />
-          <col className="w-[11%]" />
+          <col className="w-[10%]" />
+          <col className="w-[6%]" />
         </colgroup>
         <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-slate-400">
           <tr>
@@ -31,6 +35,7 @@ export default function TrialTable({
             <th className="px-4 py-3 font-medium">Status</th>
             <th className="px-4 py-3 font-medium">Enroll.</th>
             <th className="px-4 py-3 font-medium">Primary completion</th>
+            <th className="px-4 py-3 font-medium">Comms</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-slate-100">
@@ -92,6 +97,18 @@ export default function TrialTable({
                 <td className="px-4 py-3 align-top">{t.enrollmentCount}</td>
                 <td className="px-4 py-3 align-top text-xs">
                   {t.primaryCompletionDate ?? "—"}
+                </td>
+                <td className="px-4 py-3 align-top">
+                  {commCounts[t.nctId] ? (
+                    <Link
+                      href={`/workspaces/${t.workspaceId}/trials/${t.nctId}`}
+                      className="font-medium text-brand-600 hover:underline"
+                    >
+                      {commCounts[t.nctId]}
+                    </Link>
+                  ) : (
+                    <span className="text-slate-300">—</span>
+                  )}
                 </td>
               </tr>
             );

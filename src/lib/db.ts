@@ -11,6 +11,7 @@ import type {
   Alert,
   AlertSeverity,
   AlertType,
+  Comm,
   Trial,
   TrialPhase,
   TrialStatus,
@@ -57,10 +58,26 @@ interface AlertRow {
   read: number;
 }
 
+interface CommRow {
+  nct_id: string;
+  matched_term: string | null;
+  source: string | null;
+  cik: string | null;
+  company: string | null;
+  form: string | null;
+  filed_date: string | null;
+  item_codes: string | null;
+  accession: string | null;
+  doc_url: string | null;
+  description: string | null;
+  summary: string | null;
+}
+
 const snapshot = snapshotJson as {
   generatedAt: string;
   trials: TrialRow[];
   alerts: AlertRow[];
+  comms?: CommRow[];
 };
 
 // CT.gov status codes -> human labels used in the UI.
@@ -123,6 +140,42 @@ function mapAlert(row: AlertRow): Alert {
     createdAt: row.created_at,
     read: Boolean(row.read),
   };
+}
+
+function mapComm(row: CommRow): Comm {
+  return {
+    nctId: row.nct_id,
+    matchedTerm: row.matched_term ?? "",
+    source: row.source ?? "edgar",
+    cik: row.cik ?? "",
+    company: row.company ?? "Unknown filer",
+    form: row.form ?? "",
+    filedDate: row.filed_date ?? "",
+    itemCodes: row.item_codes ?? "",
+    accession: row.accession ?? "",
+    docUrl: row.doc_url ?? "",
+    description: row.description ?? "",
+    summary: row.summary ?? "",
+  };
+}
+
+/**
+ * Company communications (EDGAR filings) for a single trial, newest first.
+ */
+export function getTrialComms(nctId: string): Comm[] {
+  return (snapshot.comms ?? [])
+    .filter((c) => c.nct_id === nctId)
+    .map(mapComm)
+    .sort((a, b) => (a.filedDate < b.filedDate ? 1 : -1));
+}
+
+/** Count of comms per trial, for badges/links in the trial table. */
+export function getCommCounts(): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const c of snapshot.comms ?? []) {
+    counts[c.nct_id] = (counts[c.nct_id] ?? 0) + 1;
+  }
+  return counts;
 }
 
 /**

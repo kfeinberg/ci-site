@@ -6,7 +6,13 @@ import TrialTable from "./TrialTable";
 
 // Client wrapper around TrialTable: search + phase/status filters, a toggle to
 // hide dropped trials, and a "showing X of Y" count. Dropped trials sort last.
-export default function TrialsView({ trials }: { trials: Trial[] }) {
+export default function TrialsView({
+  trials,
+  commCounts = {},
+}: {
+  trials: Trial[];
+  commCounts?: Record<string, number>;
+}) {
   const [query, setQuery] = useState("");
   const [phase, setPhase] = useState("all");
   const [status, setStatus] = useState("all");
@@ -99,7 +105,7 @@ export default function TrialsView({ trials }: { trials: Trial[] }) {
         ) : null}
       </p>
 
-      <TrialTable trials={visible} />
+      <TrialTable trials={visible} commCounts={commCounts} />
     </>
   );
 }

@@ -111,6 +111,24 @@ export interface Alert {
   read: boolean;
 }
 
+// A "company communication" — an SEC/EDGAR filing that mentions a trial's drug.
+// Linked to a trial by nctId; attributed to whoever actually filed it (which may
+// differ from the CT.gov sponsor after M&A / licensing).
+export interface Comm {
+  nctId: string;
+  matchedTerm: string; // the drug name the filing matched on
+  source: string; // "edgar"
+  cik: string;
+  company: string; // the filer
+  form: string; // 8-K, 10-Q, 6-K, ...
+  filedDate: string; // ISO date
+  itemCodes: string; // 8-K item numbers (e.g. "2.02, 9.01")
+  accession: string;
+  docUrl: string; // direct link to the filing document on sec.gov
+  description: string;
+  summary: string; // extracted lede from press-release filings ("" if none)
+}
+
 // Baseline "current landscape" summary computed on workspace creation.
 export interface Landscape {
   headline: string;
