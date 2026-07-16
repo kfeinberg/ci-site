@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import TrialTable from "@/components/TrialTable";
+import TrialsView from "@/components/TrialsView";
 import { workspaceById } from "@/lib/mockData";
 import { getWorkspaceTrials } from "@/lib/db";
 
@@ -13,13 +13,6 @@ export default function WorkspaceTrialsPage({
 
   const trials = getWorkspaceTrials(workspace.id);
 
-  return (
-    <>
-      <div className="mb-4 flex items-center justify-between">
-        <p className="text-sm text-slate-500">{trials.length} trials from CT.gov</p>
-        {/* TODO: filters (phase, status, sponsor, mechanism) + search */}
-      </div>
-      <TrialTable trials={trials} />
-    </>
-  );
+  // TODO: filters (phase, status, sponsor, mechanism) + search
+  return <TrialsView trials={trials} />;
 }

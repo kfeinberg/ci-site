@@ -17,6 +17,7 @@ import { fileURLToPath } from "node:url";
 import { ProxyAgent, setGlobalDispatcher } from "undici";
 import { meetsCriteria } from "./criteria.mjs";
 import { writeSnapshot } from "./snapshot.mjs";
+import { detectChanges, detectDropped } from "./detect.mjs";
 
 // Node's built-in fetch ignores http(s)_proxy env vars. If a proxy is set
 // (as in this environment), route fetch through it. No-op otherwise.
@@ -197,21 +198,6 @@ function phaseLabel(phases) {
   return phases.map((p) => map[p] ?? p).join("/");
 }
 
-// Human-friendly status label from v2 codes (for alert text).
-function statusLabel(code) {
-  const map = {
-    NOT_YET_RECRUITING: "Not yet recruiting",
-    RECRUITING: "Recruiting",
-    ENROLLING_BY_INVITATION: "Enrolling by invitation",
-    ACTIVE_NOT_RECRUITING: "Active, not recruiting",
-    COMPLETED: "Completed",
-    TERMINATED: "Terminated",
-    SUSPENDED: "Suspended",
-    WITHDRAWN: "Withdrawn",
-  };
-  return map[code] ?? code ?? "Unknown";
-}
-
 // ---------- db ----------
 function openDb() {
   mkdirSync(dirname(DB_PATH), { recursive: true });
@@ -233,7 +219,8 @@ function openDb() {
       countries TEXT,
       raw TEXT,
       first_seen TEXT,
-      last_updated TEXT
+      last_updated TEXT,
+      dropped_at TEXT
     );
     CREATE TABLE IF NOT EXISTS rejected (
       nct_id TEXT,
@@ -264,6 +251,7 @@ function openDb() {
   for (const [col, type] of [
     ["sponsor_class", "TEXT"],
     ["countries", "TEXT"],
+    ["dropped_at", "TEXT"],
   ]) {
     if (!existing.has(col)) db.exec(`ALTER TABLE trials ADD COLUMN ${col} ${type}`);
   }
@@ -291,7 +279,8 @@ function makeUpsert(db) {
       conditions = excluded.conditions,
       countries = excluded.countries,
       raw = excluded.raw,
-      last_updated = @now
+      last_updated = @now,
+      dropped_at = NULL
   `);
 }
 
@@ -331,6 +320,14 @@ async function main() {
     : true;
   if (db && isBaseline) console.log("Baseline run (empty DB) — seeding without alerts.");
 
+  // Snapshot of what we were tracking before this run — drives disappearance
+  // detection after the fetch loop.
+  const trackedBefore = db
+    ? db.prepare(`SELECT nct_id, sponsor, status, dropped_at FROM trials`).all()
+    : [];
+  const acceptedIds = new Set(); // NCT ids that passed the gate this run
+  const rejectedStatusById = new Map(); // NCT id -> raw status, for rejected trials
+
   let seen = 0;
   let accepted = 0;
   let rejected = 0;
@@ -360,6 +357,7 @@ async function main() {
     const { ok, reasons } = meetsCriteria(trial);
     if (!ok) {
       rejected++;
+      if (trial.nctId) rejectedStatusById.set(trial.nctId, trial.status);
       for (const r of reasons) {
         const key = normalizeReason(r);
         rejectReasons[key] = (rejectReasons[key] ?? 0) + 1;
@@ -371,80 +369,26 @@ async function main() {
     }
 
     accepted++;
+    acceptedIds.add(trial.nctId);
     if (db) {
       // --- change detection: compare incoming vs stored BEFORE upserting ---
       const prev = getExisting.get(trial.nctId);
       const newPhase = phaseLabel(trial.phases);
 
-      if (!prev) {
-        if (!isBaseline) {
-          recordAlert({
-            nct_id: trial.nctId,
-            sponsor: trial.sponsor,
-            type: "new_trial",
-            severity: "watch",
-            title: `New ${newPhase} trial — ${trial.sponsor}`,
-            summary: trial.title,
-          });
-        }
-      } else {
-        if (
-          trial.enrollment != null &&
-          prev.enrollment != null &&
-          prev.enrollment !== trial.enrollment
-        ) {
-          recordAlert({
-            nct_id: trial.nctId,
-            sponsor: trial.sponsor,
-            type: "enrollment_change",
-            severity: "info",
-            title: `${trial.sponsor} enrollment ${prev.enrollment} → ${trial.enrollment}`,
-            summary: `${trial.nctId} enrollment count changed.`,
-            field: "enrollment",
-            old_value: String(prev.enrollment),
-            new_value: String(trial.enrollment),
-          });
-        }
-        if (prev.status !== trial.status) {
-          recordAlert({
-            nct_id: trial.nctId,
-            sponsor: trial.sponsor,
-            type: "phase_status_change",
-            severity: "watch",
-            title: `${trial.sponsor} status: ${statusLabel(prev.status)} → ${statusLabel(trial.status)}`,
-            summary: `${trial.nctId} recruitment status changed.`,
-            field: "status",
-            old_value: statusLabel(prev.status),
-            new_value: statusLabel(trial.status),
-          });
-        }
-        if (prev.phase !== newPhase) {
-          recordAlert({
-            nct_id: trial.nctId,
-            sponsor: trial.sponsor,
-            type: "phase_status_change",
-            severity: "high",
-            title: `${trial.sponsor} phase: ${prev.phase} → ${newPhase}`,
-            summary: `${trial.nctId} phase changed.`,
-            field: "phase",
-            old_value: prev.phase,
-            new_value: newPhase,
-          });
-        }
-        if ((prev.primary_completion_date ?? "") !== (trial.primaryCompletionDate ?? "")) {
-          recordAlert({
-            nct_id: trial.nctId,
-            sponsor: trial.sponsor,
-            type: "date_change",
-            severity: "info",
-            title: `${trial.sponsor} completion date ${prev.primary_completion_date ?? "—"} → ${trial.primaryCompletionDate ?? "—"}`,
-            summary: `${trial.nctId} primary completion date changed.`,
-            field: "primary_completion_date",
-            old_value: prev.primary_completion_date ?? "—",
-            new_value: trial.primaryCompletionDate ?? "—",
-          });
-        }
-      }
+      const changeAlerts = detectChanges(
+        prev,
+        {
+          nctId: trial.nctId,
+          sponsor: trial.sponsor,
+          title: trial.title,
+          enrollment: trial.enrollment,
+          status: trial.status,
+          phase: newPhase,
+          primaryCompletionDate: trial.primaryCompletionDate,
+        },
+        { isBaseline }
+      );
+      for (const a of changeAlerts) recordAlert(a);
 
       upsert.run({
         nct_id: trial.nctId,
@@ -461,6 +405,33 @@ async function main() {
         countries: JSON.stringify(trial.countries),
         raw: JSON.stringify(trial.raw),
         now: new Date().toISOString(),
+      });
+    }
+  }
+
+  // --- disappearance detection: tracked trials no longer accepted this run ---
+  // A previously-tracked trial that didn't pass the gate this run has either gone
+  // terminal (terminated/withdrawn/suspended → still in results, now rejected) or
+  // vanished from results entirely. We only trust "vanished" on a full run, since
+  // a --max-pages-capped run legitimately doesn't see every trial.
+  if (db && !isBaseline) {
+    const markDropped = db.prepare(
+      `UPDATE trials SET dropped_at = @now, status = COALESCE(@status, status) WHERE nct_id = @nct_id`
+    );
+    const fullRun = args.maxPages === 0;
+    for (const row of trackedBefore) {
+      if (acceptedIds.has(row.nct_id)) continue; // still active
+      if (row.dropped_at) continue; // already alerted on a prior run
+      const rejectedStatus = rejectedStatusById.get(row.nct_id) ?? null;
+      const observation = rejectedStatus ? { rejectedStatus } : null;
+      if (!observation && !fullRun) continue; // can't trust "vanished" on a partial run
+      const alert = detectDropped(row, observation);
+      if (!alert) continue; // non-terminal rejection — not a real drop
+      recordAlert(alert);
+      markDropped.run({
+        nct_id: row.nct_id,
+        now: new Date().toISOString(),
+        status: observation ? observation.rejectedStatus : null,
       });
     }
   }

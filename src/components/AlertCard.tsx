@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Alert } from "@/lib/types";
 import { SeverityBadge, ThreatBadge, TypeBadge } from "./Badge";
 
@@ -41,14 +40,30 @@ export default function AlertCard({ alert }: { alert: Alert }) {
         </div>
       ) : null}
 
+      {/* Implications — the "so what" for the client. Placeholder until populated. */}
+      <div className="mt-3 rounded-md border border-dashed border-slate-300 bg-slate-50/50 px-3 py-2">
+        <div className="text-xs font-medium uppercase tracking-wide text-slate-400">
+          Implications
+        </div>
+        {alert.implication ? (
+          <p className="mt-0.5 text-sm text-slate-700">{alert.implication}</p>
+        ) : (
+          <p className="mt-0.5 text-sm italic text-slate-400">
+            Insert implication here
+          </p>
+        )}
+      </div>
+
       <div className="mt-3 flex items-center gap-3 text-xs text-slate-400">
         <span>{alert.sponsor}</span>
-        <Link
-          href={`/workspaces/${alert.workspaceId}/trials`}
+        <a
+          href={`https://clinicaltrials.gov/study/${alert.nctId}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-brand-600 hover:underline"
         >
           {alert.nctId}
-        </Link>
+        </a>
       </div>
     </div>
   );

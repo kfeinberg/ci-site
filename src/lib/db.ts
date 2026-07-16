@@ -38,6 +38,7 @@ interface TrialRow {
   conditions: string | null;
   countries: string | null;
   last_updated: string | null;
+  dropped_at: string | null;
 }
 
 interface AlertRow {
@@ -102,6 +103,7 @@ function mapTrial(row: TrialRow, workspaceId: string): Trial {
     enrollmentCount: row.enrollment ?? 0,
     primaryCompletionDate: row.primary_completion_date ?? undefined,
     lastUpdated: row.last_updated ?? "",
+    droppedAt: row.dropped_at ?? undefined,
   };
 }
 

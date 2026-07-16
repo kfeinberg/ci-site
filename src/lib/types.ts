@@ -58,6 +58,7 @@ export interface Trial {
   enrollmentCount: number; // current/target enrollment
   primaryCompletionDate?: string; // ISO — key readout-timing input
   lastUpdated: string; // ISO — CT.gov last change
+  droppedAt?: string; // ISO — set when the trial terminated/withdrew or left results
 }
 
 // The client's private, per-workspace list of assets to track.
@@ -76,7 +77,8 @@ export type AlertType =
   | "new_trial" // new trial posted for the indication
   | "enrollment_change" // enrollment count changed
   | "date_change" // completion/readout date changed
-  | "phase_status_change"; // phase or status changed
+  | "phase_status_change" // phase or status changed
+  | "trial_dropped"; // trial terminated/withdrawn or vanished from results
 
 export type AlertSeverity = "info" | "watch" | "high";
 
@@ -104,6 +106,7 @@ export interface Alert {
   sponsor: string;
   change?: FieldChange; // old -> new for change alerts
   overlap?: OverlapFlag; // present when it overlaps a client asset
+  implication?: string; // analyst/LLM "so what" — why this matters (populated later)
   createdAt: string; // ISO
   read: boolean;
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T15:52:21.754Z",
+  "generatedAt": "2026-07-16T13:26:09.363Z",
   "trials": [
     {
       "nct_id": "NCT07213804",
@@ -14,7 +14,8 @@
       "interventions": "[\"Sofetabart Mipitecan\",\"Paclitaxel\",\"Topotecan\",\"Gemcitabine\",\"Pegylated liposomal doxorubicin (PLD)\",\"MIRV\",\"Bevacizumab\",\"Carboplatin\"]",
       "conditions": "[\"Ovarian Neoplasms\",\"Fallopian Tube Neoplasms\",\"Peritoneal Neoplasms\",\"Neoplasm Metastasis\"]",
       "countries": "[\"United States\",\"Australia\",\"Austria\",\"Belgium\",\"Brazil\",\"Canada\",\"China\",\"Czechia\",\"Denmark\",\"France\",\"Germany\",\"Greece\",\"Hungary\",\"Ireland\",\"Italy\",\"Japan\",\"Mexico\",\"Netherlands\",\"Norway\",\"Poland\",\"Romania\",\"South Korea\",\"Spain\",\"Switzerland\",\"Taiwan\",\"United Kingdom\"]",
-      "last_updated": "2026-07-15T02:23:32.188Z"
+      "last_updated": "2026-07-16T13:18:39.437Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT07218809",
@@ -29,7 +30,8 @@
       "interventions": "[\"AZD5335\",\"Mirvetuximab Soravtansine (MIRV)\",\"Paclitaxel\",\"Pegylated liposomal Doxorubicin (PLD)\",\"Topotecan\"]",
       "conditions": "[\"Epithelial Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Belgium\",\"Brazil\",\"Canada\",\"Chile\",\"China\",\"Czechia\",\"Denmark\",\"France\",\"Germany\",\"Greece\",\"India\",\"Ireland\",\"Israel\",\"Italy\",\"Japan\",\"Spain\",\"Sweden\",\"Taiwan\",\"United Kingdom\"]",
-      "last_updated": "2026-07-15T02:23:40.535Z"
+      "last_updated": "2026-07-16T13:18:44.091Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT07318558",
@@ -44,7 +46,8 @@
       "interventions": "[\"Sacituzumab tirumotecan\",\"Bevacizumab\",\"Rescue Medications\"]",
       "conditions": "[\"Ovarian Neoplasms\",\"Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Argentina\",\"Australia\",\"Austria\",\"Belgium\",\"Brazil\",\"Canada\",\"Colombia\",\"Czechia\",\"Denmark\",\"Finland\",\"France\",\"Greece\",\"Hungary\",\"Israel\",\"Italy\",\"Japan\",\"Norway\",\"Poland\",\"South Korea\",\"Spain\",\"Sweden\",\"Switzerland\",\"Taiwan\",\"Thailand\",\"United Kingdom\"]",
-      "last_updated": "2026-07-15T02:23:31.282Z"
+      "last_updated": "2026-07-16T13:18:30.140Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT06824467",
@@ -59,7 +62,8 @@
       "interventions": "[\"Sacituzumab tirumotecan\",\"Bevacizumab\",\"H1 receptor antagonist\",\"H2 receptor antagonist\",\"Acetaminophen (or equivalent)\",\"Dexamethasone (or equivalent)\",\"Steroid mouthwash (dexamethasone or equivalent)\"]",
       "conditions": "[\"Ovarian Cancer\",\"Fallopian Tube Cancer\",\"Primary Peritoneal Cancer\"]",
       "countries": "[\"United States\",\"Argentina\",\"Australia\",\"Belgium\",\"Brazil\",\"Canada\",\"Chile\",\"Colombia\",\"Czechia\",\"Denmark\",\"Finland\",\"France\",\"Greece\",\"Hungary\",\"Ireland\",\"Israel\",\"Italy\",\"Japan\",\"Mexico\",\"Peru\",\"Poland\",\"Portugal\",\"Romania\",\"South Korea\",\"Spain\",\"Taiwan\",\"Thailand\",\"United Kingdom\"]",
-      "last_updated": "2026-07-15T02:23:31.283Z"
+      "last_updated": "2026-07-16T13:18:37.631Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT07564141",
@@ -74,7 +78,8 @@
       "interventions": "[\"Rina-S\",\"Bevacizumab\",\"Carboplatin\",\"Gemcitabine\",\"Paclitaxel\",\"PLD\"]",
       "conditions": "[\"Platinum-Sensitive Ovarian Cancer\",\"Ovarian Cancer\"]",
       "countries": "[\"United States\"]",
-      "last_updated": "2026-07-15T02:23:44.502Z"
+      "last_updated": "2026-07-16T13:18:32.232Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT04498117",
@@ -89,7 +94,8 @@
       "interventions": "[\"Oregovomab\",\"Paclitaxel\",\"Carboplatin\",\"Placebo\",\"Carboplatin\"]",
       "conditions": "[\"Carcinoma, Ovarian Epithelial\",\"Ovarian Neoplasms\",\"Ovarian Cancer\",\"Ovarian Serous Adenocarcinoma\",\"Fallopian Tube Neoplasms\",\"Fallopian Tube Adenocarcinoma\",\"Fallopian Tube Serous Adenocarcinoma\",\"Peritoneal Cancer\",\"Peritoneal Carcinoma\",\"Peritoneal Neoplasms\"]",
       "countries": "[\"United States\",\"Argentina\",\"Belgium\",\"Brazil\",\"Canada\",\"Chile\",\"Czechia\",\"Hungary\",\"India\",\"Italy\",\"Mexico\",\"South Korea\",\"Spain\",\"Taiwan\"]",
-      "last_updated": "2026-07-15T02:23:36.874Z"
+      "last_updated": "2026-07-16T13:18:41.006Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT06819007",
@@ -104,7 +110,24 @@
       "interventions": "[\"Trastuzumab Deruxtecan\",\"Bevacizumab\"]",
       "conditions": "[\"Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Austria\",\"Belgium\",\"Brazil\",\"Bulgaria\",\"China\",\"Czechia\",\"Denmark\",\"France\",\"Greece\",\"Hungary\",\"India\",\"Israel\",\"Italy\",\"Japan\",\"Malaysia\",\"Poland\",\"Romania\",\"Singapore\",\"South Korea\",\"Spain\",\"Sweden\",\"Taiwan\",\"United Kingdom\"]",
-      "last_updated": "2026-07-15T02:23:39.933Z"
+      "last_updated": "2026-07-16T13:18:35.998Z",
+      "dropped_at": null
+    },
+    {
+      "nct_id": "NCT07225270",
+      "title": "Study to Assess the Efficacy and Safety of Rina-S Plus Standard of Care Compared to Standard of Care for Maintenance Treatment of Participants With Recurrent Platinum-sensitive Ovarian Cancer After Second-line (2L) Platinum-based Doublet Chemotherapy",
+      "sponsor": "Genmab",
+      "sponsor_class": "INDUSTRY",
+      "study_type": "INTERVENTIONAL",
+      "phase": "Phase 3",
+      "status": "RECRUITING",
+      "enrollment": 544,
+      "primary_completion_date": "2028-10",
+      "interventions": "[\"Rina-S\",\"Bevacizumab\"]",
+      "conditions": "[\"Ovarian Cancer\",\"Platinum-sensitive Ovarian Cancer\",\"PSOC\"]",
+      "countries": "[\"United States\",\"Japan\"]",
+      "last_updated": "2026-07-16T13:18:31.299Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT06619236",
@@ -119,22 +142,8 @@
       "interventions": "[\"Rina-S\",\"Paclitaxel\",\"Topotecan\",\"Pegylated liposomal doxorubicin (PLD)\",\"Gemcitabine\"]",
       "conditions": "[\"Platinum-resistant Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Austria\",\"Belgium\",\"Canada\",\"China\",\"Czechia\",\"Denmark\",\"France\",\"Germany\",\"Greece\",\"Italy\",\"Japan\",\"Netherlands\",\"Norway\",\"Poland\",\"Puerto Rico\",\"Spain\"]",
-      "last_updated": "2026-07-15T02:23:44.795Z"
-    },
-    {
-      "nct_id": "NCT07225270",
-      "title": "Study to Assess the Efficacy and Safety of Rina-S Plus Standard of Care Compared to Standard of Care for Maintenance Treatment of Participants With Recurrent Platinum-sensitive Ovarian Cancer After Second-line (2L) Platinum-based Doublet Chemotherapy",
-      "sponsor": "Genmab",
-      "sponsor_class": "INDUSTRY",
-      "study_type": "INTERVENTIONAL",
-      "phase": "Phase 3",
-      "status": "RECRUITING",
-      "enrollment": 528,
-      "primary_completion_date": "2028-10",
-      "interventions": "[\"Rina-S\",\"Bevacizumab\"]",
-      "conditions": "[\"Ovarian Cancer\",\"Platinum-sensitive Ovarian Cancer\",\"PSOC\"]",
-      "countries": "[\"United States\",\"Japan\"]",
-      "last_updated": "2026-07-15T02:23:35.913Z"
+      "last_updated": "2026-07-16T13:18:34.143Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT05445778",
@@ -149,7 +158,8 @@
       "interventions": "[\"Mirvetuximab soravtansine plus Bevacizumab\",\"Bevacizumab\"]",
       "conditions": "[\"Ovarian Cancer\",\"Peritoneal Cancer\",\"Fallopian Tube Cancer\"]",
       "countries": "[\"United States\",\"Argentina\",\"Australia\",\"Belgium\",\"Brazil\",\"Bulgaria\",\"Canada\",\"China\",\"Czechia\",\"France\",\"Germany\",\"Greece\",\"Ireland\",\"Israel\",\"Italy\",\"Japan\",\"Philippines\",\"Poland\",\"South Korea\",\"Spain\",\"Turkey (Türkiye)\",\"United Kingdom\"]",
-      "last_updated": "2026-07-15T02:23:30.970Z"
+      "last_updated": "2026-07-16T13:18:42.559Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT06915025",
@@ -164,7 +174,8 @@
       "interventions": "[\"IMNN-001 (IL-12 Plasmid Formulated with PEG-PEI-Cholesterol Lipopolymer)\",\"Paclitaxel\",\"Carboplatin\",\"Olaparib\",\"Niraparib\"]",
       "conditions": "[\"Epithelial Ovarian Cancer\",\"Ovarian Cancer\",\"Fallopian Tube Cancer\",\"Primary Peritoneal Carcinoma\"]",
       "countries": "[\"United States\"]",
-      "last_updated": "2026-07-15T02:23:31.880Z"
+      "last_updated": "2026-07-16T13:18:44.686Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT07214779",
@@ -179,7 +190,8 @@
       "interventions": "[\"INCB123667\",\"Investigator's choice of chemotherapy\"]",
       "conditions": "[\"Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Belgium\",\"Canada\",\"France\",\"Germany\",\"Ireland\",\"Italy\",\"Japan\",\"Netherlands\",\"Poland\",\"South Korea\",\"Spain\",\"Switzerland\",\"United Kingdom\"]",
-      "last_updated": "2026-07-15T02:23:33.106Z"
+      "last_updated": "2026-07-16T13:18:45.289Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT07546500",
@@ -194,7 +206,8 @@
       "interventions": "[\"Investigator's choice of Chemotherapy\",\"Azenosertib\"]",
       "conditions": "[\"Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Belgium\",\"Canada\",\"France\",\"Germany\",\"Ireland\",\"Italy\",\"Poland\",\"South Korea\",\"Spain\",\"Taiwan\"]",
-      "last_updated": "2026-07-15T02:23:45.097Z"
+      "last_updated": "2026-07-16T13:18:38.537Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT07109414",
@@ -209,7 +222,24 @@
       "interventions": "[\"NP-G2-044\",\"PLD\"]",
       "conditions": "[\"Platinum-resistant Ovarian Cancer\"]",
       "countries": "[\"United States\"]",
-      "last_updated": "2026-07-15T02:23:43.287Z"
+      "last_updated": "2026-07-16T13:18:41.330Z",
+      "dropped_at": null
+    },
+    {
+      "nct_id": "NCT09999999",
+      "title": "Phase 3 Demo Trial That Will Be Dropped",
+      "sponsor": "Acme Oncology",
+      "sponsor_class": "INDUSTRY",
+      "study_type": "INTERVENTIONAL",
+      "phase": "Phase 3",
+      "status": "RECRUITING",
+      "enrollment": 300,
+      "primary_completion_date": "2027-06",
+      "interventions": "[]",
+      "conditions": "[\"Ovarian cancer\"]",
+      "countries": "[\"United States\"]",
+      "last_updated": "2026-07-16T13:18:19.965Z",
+      "dropped_at": "2026-07-16T13:18:45.845Z"
     },
     {
       "nct_id": "NCT06072781",
@@ -224,7 +254,8 @@
       "interventions": "[\"avutometinib\",\"Defactinib\",\"Pegylated liposomal doxorubicin\",\"Paclitaxel\",\"Letrozole\",\"Anastrozole\"]",
       "conditions": "[\"Low Grade Serous Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Belgium\",\"Canada\",\"Denmark\",\"France\",\"Germany\",\"Ireland\",\"Italy\",\"Japan\",\"Netherlands\",\"New Zealand\",\"Poland\",\"South Korea\",\"Spain\",\"United Kingdom\"]",
-      "last_updated": "2026-07-15T02:23:32.489Z"
+      "last_updated": "2026-07-16T13:18:31.611Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT05281471",
@@ -239,7 +270,8 @@
       "interventions": "[\"olvimulogene nanivacirepvec\",\"Platinum chemotherapy: carboplatin (preferred) or cisplatin\",\"Non-platinum chemotherapy: Physician's Choice of gemcitabine, taxane (paclitaxel, docetaxel or nab-paclitaxel) or pegylated liposomal doxorubicin\",\"Bevacizumab (or biosimilar)\"]",
       "conditions": "[\"Platinum-resistant Ovarian Cancer\",\"Platinum-refractory Ovarian Cancer\",\"Fallopian Tube Cancer\",\"Primary Peritoneal Cancer\",\"High-grade Serous Ovarian Cancer\",\"Endometrioid Ovarian Cancer\",\"Ovarian Clear Cell Carcinoma\"]",
       "countries": "[\"United States\"]",
-      "last_updated": "2026-07-15T02:23:29.682Z"
+      "last_updated": "2026-07-16T13:18:32.885Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT04421963",
@@ -254,7 +286,8 @@
       "interventions": "[\"Olaparib\"]",
       "conditions": "[\"Ovarian Cancer\",\"Breast Cancer\"]",
       "countries": "[\"United States\",\"Belgium\",\"Bulgaria\",\"Canada\",\"China\",\"Czechia\",\"Denmark\",\"Finland\",\"France\",\"Germany\",\"Hungary\",\"Israel\",\"Italy\",\"Poland\",\"Portugal\",\"Russia\",\"Slovenia\",\"South Korea\",\"Spain\",\"Sweden\",\"Taiwan\",\"Turkey (Türkiye)\",\"United Kingdom\"]",
-      "last_updated": "2026-07-15T02:23:35.554Z"
+      "last_updated": "2026-07-16T13:18:31.925Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT07219238",
@@ -269,7 +302,8 @@
       "interventions": "[\"GEH300079 (68Ga) Injection Positron-Emission Tomography (PET)/Computed Tomography (CT)\"]",
       "conditions": "[\"Colorectal Cancer\",\"Gastric Cancers\",\"Ovarian Cancers\",\"Pancreatic Ductal Adenocarcinoma\"]",
       "countries": "[\"United States\",\"Sweden\"]",
-      "last_updated": "2026-07-15T02:23:34.946Z"
+      "last_updated": "2026-07-16T13:18:37.627Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT05804370",
@@ -284,7 +318,8 @@
       "interventions": "[\"Gleolan\"]",
       "conditions": "[\"Ovarian Cancer\"]",
       "countries": "[\"United States\"]",
-      "last_updated": "2026-07-15T02:23:44.208Z"
+      "last_updated": "2026-07-16T13:18:30.135Z",
+      "dropped_at": null
     },
     {
       "nct_id": "NCT05059522",
@@ -299,8 +334,100 @@
       "interventions": "[\"Avelumab\",\"Lorlatanib\",\"Talazoparib\",\"Pemetrexed\",\"Axitinib\",\"CMP 001\",\"Utomilumab\",\"PF04518600\"]",
       "conditions": "[\"Advanced Malignancies\",\"NSCLC\",\"Ovarian Cancer\",\"Urothelial Cancer\",\"Solid Tumors\"]",
       "countries": "[\"United States\",\"Australia\",\"Belgium\",\"Canada\",\"Denmark\",\"France\",\"Hungary\",\"Israel\",\"Italy\",\"Japan\",\"Mexico\",\"New Zealand\",\"Poland\",\"Russia\",\"Serbia\",\"South Korea\",\"Spain\",\"Taiwan\",\"United Kingdom\"]",
-      "last_updated": "2026-07-15T02:23:42.991Z"
+      "last_updated": "2026-07-16T13:18:41.932Z",
+      "dropped_at": null
     }
   ],
-  "alerts": []
+  "alerts": [
+    {
+      "id": 6,
+      "workspace_id": "ws_ovarian",
+      "nct_id": "NCT09999999",
+      "sponsor": "Acme Oncology",
+      "type": "trial_dropped",
+      "severity": "watch",
+      "title": "Acme Oncology trial no longer listed — NCT09999999",
+      "summary": "NCT09999999 no longer appears in CT.gov results for this query.",
+      "field": "status",
+      "old_value": "Recruiting",
+      "new_value": "Removed",
+      "created_at": "2026-07-16T13:18:45.845Z",
+      "read": 0
+    },
+    {
+      "id": 5,
+      "workspace_id": "ws_ovarian",
+      "nct_id": "NCT07218809",
+      "sponsor": "AstraZeneca",
+      "type": "phase_status_change",
+      "severity": "high",
+      "title": "AstraZeneca phase: Phase 2 → Phase 3",
+      "summary": "NCT07218809 phase changed.",
+      "field": "phase",
+      "old_value": "Phase 2",
+      "new_value": "Phase 3",
+      "created_at": "2026-07-16T13:18:44.091Z",
+      "read": 0
+    },
+    {
+      "id": 4,
+      "workspace_id": "ws_ovarian",
+      "nct_id": "NCT07213804",
+      "sponsor": "Eli Lilly and Company",
+      "type": "enrollment_change",
+      "severity": "info",
+      "title": "Eli Lilly and Company enrollment 1480 → 1630",
+      "summary": "NCT07213804 enrollment count changed.",
+      "field": "enrollment",
+      "old_value": "1480",
+      "new_value": "1630",
+      "created_at": "2026-07-16T13:18:39.437Z",
+      "read": 0
+    },
+    {
+      "id": 3,
+      "workspace_id": "ws_ovarian",
+      "nct_id": "NCT06824467",
+      "sponsor": "Merck Sharp & Dohme LLC",
+      "type": "date_change",
+      "severity": "info",
+      "title": "Merck Sharp & Dohme LLC completion date 2025-01 → 2029-04-27",
+      "summary": "NCT06824467 primary completion date changed.",
+      "field": "primary_completion_date",
+      "old_value": "2025-01",
+      "new_value": "2029-04-27",
+      "created_at": "2026-07-16T13:18:37.631Z",
+      "read": 0
+    },
+    {
+      "id": 2,
+      "workspace_id": "ws_ovarian",
+      "nct_id": "NCT07225270",
+      "sponsor": "Genmab",
+      "type": "enrollment_change",
+      "severity": "info",
+      "title": "Genmab enrollment 528 → 544",
+      "summary": "NCT07225270 enrollment count changed.",
+      "field": "enrollment",
+      "old_value": "528",
+      "new_value": "544",
+      "created_at": "2026-07-16T13:18:31.299Z",
+      "read": 0
+    },
+    {
+      "id": 1,
+      "workspace_id": "ws_ovarian",
+      "nct_id": "NCT07318558",
+      "sponsor": "Merck Sharp & Dohme LLC",
+      "type": "phase_status_change",
+      "severity": "watch",
+      "title": "Merck Sharp & Dohme LLC status: Not yet recruiting → Recruiting",
+      "summary": "NCT07318558 recruitment status changed.",
+      "field": "status",
+      "old_value": "Not yet recruiting",
+      "new_value": "Recruiting",
+      "created_at": "2026-07-16T13:18:30.140Z",
+      "read": 0
+    }
+  ]
 }

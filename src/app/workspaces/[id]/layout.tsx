@@ -29,7 +29,10 @@ export default function WorkspaceLayout({
         </div>
         <button
           type="button"
-          className="shrink-0 rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+          disabled
+          title="Syncs run offline via the scraper (npm run scrape). In-app sync is coming soon."
+          aria-disabled="true"
+          className="shrink-0 cursor-not-allowed rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-400"
         >
           Re-sync CT.gov
         </button>

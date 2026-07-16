@@ -11,6 +11,7 @@ const typeLabels: Record<AlertType, string> = {
   enrollment_change: "Enrollment change",
   date_change: "Date change",
   phase_status_change: "Phase / status change",
+  trial_dropped: "Trial dropped",
 };
 
 export function SeverityBadge({ severity }: { severity: AlertSeverity }) {

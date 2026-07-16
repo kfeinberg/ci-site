@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "scrape": "node scripts/scrape.mjs",
-    "snapshot": "node scripts/export-snapshot.mjs"
+    "snapshot": "node scripts/export-snapshot.mjs",
+    "perturb": "node scripts/perturb.mjs",
+    "test": "node --test scripts/"
   },
   "dependencies": {
     "next": "14.2.35",

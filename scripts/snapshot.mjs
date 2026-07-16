@@ -23,7 +23,7 @@ export function writeSnapshot(nowIso = new Date().toISOString()) {
     .prepare(
       `SELECT nct_id, title, sponsor, sponsor_class, study_type, phase, status,
               enrollment, primary_completion_date, interventions, conditions,
-              countries, last_updated
+              countries, last_updated, dropped_at
        FROM trials
        ORDER BY enrollment DESC`
     )
