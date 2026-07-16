@@ -51,14 +51,12 @@ export default function TrialTable({
               <tr key={t.nctId} className={rowClass}>
                 <td className="px-4 py-3 align-top">
                   <div className="flex items-center gap-2">
-                    <a
-                      href={`https://clinicaltrials.gov/study/${t.nctId}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={`/workspaces/${t.workspaceId}/trials/${t.nctId}`}
                       className="font-medium text-brand-600 hover:underline"
                     >
                       {t.nctId}
-                    </a>
+                    </Link>
                     {overlap ? (
                       <span className="rounded-full bg-red-100 px-1.5 py-0.5 text-[10px] font-medium text-red-700">
                         overlap
@@ -82,11 +80,15 @@ export default function TrialTable({
                 <td className="truncate px-4 py-3 align-top" title={t.sponsor}>
                   {t.sponsor}
                 </td>
-                <td
-                  className="truncate px-4 py-3 align-top"
-                  title={t.mechanism || t.intervention}
-                >
-                  {t.mechanism || t.intervention}
+                <td className="px-4 py-3 align-top">
+                  <div className="truncate" title={t.intervention}>
+                    {t.intervention}
+                  </div>
+                  {t.mechanism ? (
+                    <div className="mt-0.5 truncate text-xs text-slate-400" title={t.mechanism}>
+                      {t.mechanism}
+                    </div>
+                  ) : null}
                 </td>
                 <td className="px-4 py-3 align-top">
                   <Chip>{t.phase}</Chip>
@@ -101,7 +103,7 @@ export default function TrialTable({
                 <td className="px-4 py-3 align-top">
                   {commCounts[t.nctId] ? (
                     <Link
-                      href={`/workspaces/${t.workspaceId}/trials/${t.nctId}`}
+                      href={`/workspaces/${t.workspaceId}/trials/${t.nctId}#comms`}
                       className="font-medium text-brand-600 hover:underline"
                     >
                       {commCounts[t.nctId]}

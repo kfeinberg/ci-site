@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T14:59:50.121Z",
+  "generatedAt": "2026-07-16T17:32:08.682Z",
   "trials": [
     {
       "nct_id": "NCT07213804",
@@ -15,7 +15,12 @@
       "conditions": "[\"Ovarian Neoplasms\",\"Fallopian Tube Neoplasms\",\"Peritoneal Neoplasms\",\"Neoplasm Metastasis\"]",
       "countries": "[\"United States\",\"Australia\",\"Austria\",\"Belgium\",\"Brazil\",\"Canada\",\"China\",\"Czechia\",\"Denmark\",\"France\",\"Germany\",\"Greece\",\"Hungary\",\"Ireland\",\"Italy\",\"Japan\",\"Mexico\",\"Netherlands\",\"Norway\",\"Poland\",\"Romania\",\"South Korea\",\"Spain\",\"Switzerland\",\"Taiwan\",\"United Kingdom\"]",
       "last_updated": "2026-07-16T13:18:39.437Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Sofetabart Mipitecan",
+      "mechanism_class": "anti-FRα ADC",
+      "target": "FRα",
+      "modality": "ADC",
+      "line_of_therapy": "platinum-resistant and platinum-sensitive ovarian cancer"
     },
     {
       "nct_id": "NCT07218809",
@@ -31,7 +36,12 @@
       "conditions": "[\"Epithelial Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Belgium\",\"Brazil\",\"Canada\",\"Chile\",\"China\",\"Czechia\",\"Denmark\",\"France\",\"Germany\",\"Greece\",\"India\",\"Ireland\",\"Israel\",\"Italy\",\"Japan\",\"Spain\",\"Sweden\",\"Taiwan\",\"United Kingdom\"]",
       "last_updated": "2026-07-16T13:18:44.091Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "AZD5335",
+      "mechanism_class": "anti-FRα TOP1i ADC",
+      "target": "FRα",
+      "modality": "ADC",
+      "line_of_therapy": "platinum-resistant recurrent ovarian cancer"
     },
     {
       "nct_id": "NCT07318558",
@@ -47,7 +57,12 @@
       "conditions": "[\"Ovarian Neoplasms\",\"Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Argentina\",\"Australia\",\"Austria\",\"Belgium\",\"Brazil\",\"Canada\",\"Colombia\",\"Czechia\",\"Denmark\",\"Finland\",\"France\",\"Greece\",\"Hungary\",\"Israel\",\"Italy\",\"Japan\",\"Norway\",\"Poland\",\"South Korea\",\"Spain\",\"Sweden\",\"Switzerland\",\"Taiwan\",\"Thailand\",\"United Kingdom\"]",
       "last_updated": "2026-07-16T13:18:30.140Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Sacituzumab tirumotecan",
+      "mechanism_class": "anti-TROP2 ADC",
+      "target": "TROP2",
+      "modality": "ADC",
+      "line_of_therapy": "previously treated advanced/metastatic"
     },
     {
       "nct_id": "NCT06824467",
@@ -63,7 +78,12 @@
       "conditions": "[\"Ovarian Cancer\",\"Fallopian Tube Cancer\",\"Primary Peritoneal Cancer\"]",
       "countries": "[\"United States\",\"Argentina\",\"Australia\",\"Belgium\",\"Brazil\",\"Canada\",\"Chile\",\"Colombia\",\"Czechia\",\"Denmark\",\"Finland\",\"France\",\"Greece\",\"Hungary\",\"Ireland\",\"Israel\",\"Italy\",\"Japan\",\"Mexico\",\"Peru\",\"Poland\",\"Portugal\",\"Romania\",\"South Korea\",\"Spain\",\"Taiwan\",\"Thailand\",\"United Kingdom\"]",
       "last_updated": "2026-07-16T13:18:37.631Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Sacituzumab tirumotecan",
+      "mechanism_class": "anti-TROP2 ADC",
+      "target": "TROP2",
+      "modality": "ADC",
+      "line_of_therapy": "previously treated advanced/metastatic"
     },
     {
       "nct_id": "NCT07564141",
@@ -79,7 +99,12 @@
       "conditions": "[\"Platinum-Sensitive Ovarian Cancer\",\"Ovarian Cancer\"]",
       "countries": "[\"United States\"]",
       "last_updated": "2026-07-16T13:18:32.232Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Rina-S",
+      "mechanism_class": "anti-FRα ADC",
+      "target": "FRα",
+      "modality": "ADC",
+      "line_of_therapy": "2L maintenance (platinum-sensitive recurrent) and platinum-resistant"
     },
     {
       "nct_id": "NCT04498117",
@@ -95,7 +120,12 @@
       "conditions": "[\"Carcinoma, Ovarian Epithelial\",\"Ovarian Neoplasms\",\"Ovarian Cancer\",\"Ovarian Serous Adenocarcinoma\",\"Fallopian Tube Neoplasms\",\"Fallopian Tube Adenocarcinoma\",\"Fallopian Tube Serous Adenocarcinoma\",\"Peritoneal Cancer\",\"Peritoneal Carcinoma\",\"Peritoneal Neoplasms\"]",
       "countries": "[\"United States\",\"Argentina\",\"Belgium\",\"Brazil\",\"Canada\",\"Chile\",\"Czechia\",\"Hungary\",\"India\",\"Italy\",\"Mexico\",\"South Korea\",\"Spain\",\"Taiwan\"]",
       "last_updated": "2026-07-16T13:18:41.006Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Oregovomab",
+      "mechanism_class": "anti-CA-125 monoclonal antibody immunotherapy",
+      "target": "CA-125 (MUC16)",
+      "modality": "monoclonal antibody",
+      "line_of_therapy": "1L maintenance (post-debulking, advanced epithelial ovarian cancer)"
     },
     {
       "nct_id": "NCT06819007",
@@ -111,7 +141,12 @@
       "conditions": "[\"Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Austria\",\"Belgium\",\"Brazil\",\"Bulgaria\",\"China\",\"Czechia\",\"Denmark\",\"France\",\"Greece\",\"Hungary\",\"India\",\"Israel\",\"Italy\",\"Japan\",\"Malaysia\",\"Poland\",\"Romania\",\"Singapore\",\"South Korea\",\"Spain\",\"Sweden\",\"Taiwan\",\"United Kingdom\"]",
       "last_updated": "2026-07-16T13:18:35.998Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Trastuzumab Deruxtecan",
+      "mechanism_class": "anti-HER2 ADC",
+      "target": "HER2",
+      "modality": "ADC",
+      "line_of_therapy": "1L maintenance"
     },
     {
       "nct_id": "NCT07225270",
@@ -127,7 +162,12 @@
       "conditions": "[\"Ovarian Cancer\",\"Platinum-sensitive Ovarian Cancer\",\"PSOC\"]",
       "countries": "[\"United States\",\"Japan\"]",
       "last_updated": "2026-07-16T13:18:31.299Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Rina-S",
+      "mechanism_class": "anti-FRα ADC",
+      "target": "FRα",
+      "modality": "ADC",
+      "line_of_therapy": "2L maintenance (platinum-sensitive recurrent) and platinum-resistant"
     },
     {
       "nct_id": "NCT06619236",
@@ -143,7 +183,12 @@
       "conditions": "[\"Platinum-resistant Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Austria\",\"Belgium\",\"Canada\",\"China\",\"Czechia\",\"Denmark\",\"France\",\"Germany\",\"Greece\",\"Italy\",\"Japan\",\"Netherlands\",\"Norway\",\"Poland\",\"Puerto Rico\",\"Spain\"]",
       "last_updated": "2026-07-16T13:18:34.143Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Rina-S",
+      "mechanism_class": "anti-FRα ADC",
+      "target": "FRα",
+      "modality": "ADC",
+      "line_of_therapy": "2L maintenance (platinum-sensitive recurrent) and platinum-resistant"
     },
     {
       "nct_id": "NCT05445778",
@@ -159,7 +204,12 @@
       "conditions": "[\"Ovarian Cancer\",\"Peritoneal Cancer\",\"Fallopian Tube Cancer\"]",
       "countries": "[\"United States\",\"Argentina\",\"Australia\",\"Belgium\",\"Brazil\",\"Bulgaria\",\"Canada\",\"China\",\"Czechia\",\"France\",\"Germany\",\"Greece\",\"Ireland\",\"Israel\",\"Italy\",\"Japan\",\"Philippines\",\"Poland\",\"South Korea\",\"Spain\",\"Turkey (Türkiye)\",\"United Kingdom\"]",
       "last_updated": "2026-07-16T13:18:42.559Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Mirvetuximab soravtansine",
+      "mechanism_class": "anti-FRα ADC",
+      "target": "FRα",
+      "modality": "ADC",
+      "line_of_therapy": "platinum-resistant ovarian cancer after 1-3 prior regimens"
     },
     {
       "nct_id": "NCT06915025",
@@ -175,7 +225,12 @@
       "conditions": "[\"Epithelial Ovarian Cancer\",\"Ovarian Cancer\",\"Fallopian Tube Cancer\",\"Primary Peritoneal Carcinoma\"]",
       "countries": "[\"United States\"]",
       "last_updated": "2026-07-16T13:18:44.686Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "IMNN-001",
+      "mechanism_class": "IL-12 immunostimulatory gene therapy",
+      "target": "IL-12",
+      "modality": "gene therapy",
+      "line_of_therapy": "1L newly diagnosed advanced ovarian cancer (neoadjuvant/adjuvant, with chemotherapy)"
     },
     {
       "nct_id": "NCT07214779",
@@ -191,7 +246,12 @@
       "conditions": "[\"Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Belgium\",\"Canada\",\"France\",\"Germany\",\"Ireland\",\"Italy\",\"Japan\",\"Netherlands\",\"Poland\",\"South Korea\",\"Spain\",\"Switzerland\",\"United Kingdom\"]",
       "last_updated": "2026-07-16T13:18:45.289Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "INCB123667",
+      "mechanism_class": "CDK2 inhibitor",
+      "target": "CDK2",
+      "modality": "small molecule",
+      "line_of_therapy": "platinum-resistant ovarian cancer (Cyclin E1 overexpression)"
     },
     {
       "nct_id": "NCT07546500",
@@ -207,7 +267,12 @@
       "conditions": "[\"Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Belgium\",\"Canada\",\"France\",\"Germany\",\"Ireland\",\"Italy\",\"Poland\",\"South Korea\",\"Spain\",\"Taiwan\"]",
       "last_updated": "2026-07-16T13:18:38.537Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Azenosertib",
+      "mechanism_class": "WEE1 inhibitor",
+      "target": "WEE1",
+      "modality": "small molecule",
+      "line_of_therapy": "platinum-resistant (2L+)"
     },
     {
       "nct_id": "NCT07109414",
@@ -223,7 +288,12 @@
       "conditions": "[\"Platinum-resistant Ovarian Cancer\"]",
       "countries": "[\"United States\"]",
       "last_updated": "2026-07-16T13:18:41.330Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "NP-G2-044",
+      "mechanism_class": "Fascin inhibitor",
+      "target": "Fascin-1 (FSCN1)",
+      "modality": "small molecule",
+      "line_of_therapy": "platinum-resistant ovarian cancer"
     },
     {
       "nct_id": "NCT09999999",
@@ -239,7 +309,12 @@
       "conditions": "[\"Ovarian cancer\"]",
       "countries": "[\"United States\"]",
       "last_updated": "2026-07-16T13:18:19.965Z",
-      "dropped_at": "2026-07-16T13:18:45.845Z"
+      "dropped_at": "2026-07-16T13:18:45.845Z",
+      "drug": null,
+      "mechanism_class": null,
+      "target": null,
+      "modality": null,
+      "line_of_therapy": null
     },
     {
       "nct_id": "NCT06072781",
@@ -255,7 +330,12 @@
       "conditions": "[\"Low Grade Serous Ovarian Cancer\"]",
       "countries": "[\"United States\",\"Australia\",\"Belgium\",\"Canada\",\"Denmark\",\"France\",\"Germany\",\"Ireland\",\"Italy\",\"Japan\",\"Netherlands\",\"New Zealand\",\"Poland\",\"South Korea\",\"Spain\",\"United Kingdom\"]",
       "last_updated": "2026-07-16T13:18:31.611Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "avutometinib",
+      "mechanism_class": "RAF/MEK inhibitor",
+      "target": "RAF/MEK",
+      "modality": "small molecule",
+      "line_of_therapy": "recurrent/2L+"
     },
     {
       "nct_id": "NCT05281471",
@@ -271,7 +351,12 @@
       "conditions": "[\"Platinum-resistant Ovarian Cancer\",\"Platinum-refractory Ovarian Cancer\",\"Fallopian Tube Cancer\",\"Primary Peritoneal Cancer\",\"High-grade Serous Ovarian Cancer\",\"Endometrioid Ovarian Cancer\",\"Ovarian Clear Cell Carcinoma\"]",
       "countries": "[\"United States\"]",
       "last_updated": "2026-07-16T13:18:32.885Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "olvimulogene nanivacirepvec",
+      "mechanism_class": "oncolytic vaccinia virus immunotherapy",
+      "target": "none (oncolytic virus)",
+      "modality": "oncolytic virus",
+      "line_of_therapy": "platinum-resistant/refractory ovarian cancer"
     },
     {
       "nct_id": "NCT04421963",
@@ -287,7 +372,12 @@
       "conditions": "[\"Ovarian Cancer\",\"Breast Cancer\"]",
       "countries": "[\"United States\",\"Belgium\",\"Bulgaria\",\"Canada\",\"China\",\"Czechia\",\"Denmark\",\"Finland\",\"France\",\"Germany\",\"Hungary\",\"Israel\",\"Italy\",\"Poland\",\"Portugal\",\"Russia\",\"Slovenia\",\"South Korea\",\"Spain\",\"Sweden\",\"Taiwan\",\"Turkey (Türkiye)\",\"United Kingdom\"]",
       "last_updated": "2026-07-16T13:18:31.925Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Olaparib",
+      "mechanism_class": "PARP inhibitor",
+      "target": "PARP",
+      "modality": "small molecule",
+      "line_of_therapy": "1st-line maintenance/adjuvant (BRCA/HRD-positive)"
     },
     {
       "nct_id": "NCT07219238",
@@ -303,7 +393,12 @@
       "conditions": "[\"Colorectal Cancer\",\"Gastric Cancers\",\"Ovarian Cancers\",\"Pancreatic Ductal Adenocarcinoma\"]",
       "countries": "[\"United States\",\"Sweden\"]",
       "last_updated": "2026-07-16T13:18:37.627Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": null,
+      "mechanism_class": null,
+      "target": null,
+      "modality": null,
+      "line_of_therapy": null
     },
     {
       "nct_id": "NCT05804370",
@@ -319,7 +414,12 @@
       "conditions": "[\"Ovarian Cancer\"]",
       "countries": "[\"United States\"]",
       "last_updated": "2026-07-16T13:18:30.135Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Gleolan",
+      "mechanism_class": "fluorescence imaging agent",
+      "target": "protoporphyrin IX",
+      "modality": "small molecule",
+      "line_of_therapy": "intraoperative visualization (newly diagnosed or recurrent)"
     },
     {
       "nct_id": "NCT05059522",
@@ -335,7 +435,12 @@
       "conditions": "[\"Advanced Malignancies\",\"NSCLC\",\"Ovarian Cancer\",\"Urothelial Cancer\",\"Solid Tumors\"]",
       "countries": "[\"United States\",\"Australia\",\"Belgium\",\"Canada\",\"Denmark\",\"France\",\"Hungary\",\"Israel\",\"Italy\",\"Japan\",\"Mexico\",\"New Zealand\",\"Poland\",\"Russia\",\"Serbia\",\"South Korea\",\"Spain\",\"Taiwan\",\"United Kingdom\"]",
       "last_updated": "2026-07-16T13:18:41.932Z",
-      "dropped_at": null
+      "dropped_at": null,
+      "drug": "Lorlatanib",
+      "mechanism_class": "anti-PD-L1 monoclonal antibody",
+      "target": "PD-L1",
+      "modality": "monoclonal antibody",
+      "line_of_therapy": "unknown"
     }
   ],
   "alerts": [

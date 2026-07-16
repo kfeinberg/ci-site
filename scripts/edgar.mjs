@@ -22,6 +22,7 @@ import { fileURLToPath } from "node:url";
 import { ProxyAgent, setGlobalDispatcher } from "undici";
 import Anthropic from "@anthropic-ai/sdk";
 import { writeSnapshot } from "./snapshot.mjs";
+import { drugTerms } from "./drugs.mjs";
 
 const PROXY = process.env.https_proxy || process.env.HTTPS_PROXY;
 if (PROXY) {
@@ -43,33 +44,6 @@ const DB_PATH = resolve(__dirname, "..", "data/clarion.db");
 const EFTS = "https://efts.sec.gov/LATEST/search-index";
 const FORMS = ["8-K", "6-K", "10-K", "10-Q", "20-F"]; // high-signal disclosures
 const USER_AGENT = process.env.SEC_USER_AGENT || "Clarion CI research contact@example.com";
-
-// Non-drug / non-distinctive intervention terms we should NOT search on — they'd
-// match unrelated filings or generic chemo backbones, not the program of interest.
-const SKIP_TERMS = new Set([
-  "placebo", "chemotherapy", "chemo", "standard of care", "best supportive care",
-  "saline", "normal saline", "observation", "no intervention", "investigational agent",
-  "combination", "supportive care", "surgery", "radiation", "radiotherapy",
-  // generic chemo backbones — comms about these aren't program-specific
-  "carboplatin", "paclitaxel", "cisplatin", "doxorubicin", "gemcitabine",
-  "pegylated liposomal doxorubicin", "docetaxel", "topotecan", "pemetrexed",
-  // generic hormonal / comparator agents used as trial control arms
-  "letrozole", "anastrozole", "tamoxifen", "exemestane", "fulvestrant",
-  "axitinib", "bevacizumab",
-  // marketed backbone/comparator antibodies — appear across many unrelated
-  // programs, so full-text matches are rarely about the trial's own asset
-  "avelumab", "pembrolizumab", "nivolumab", "atezolizumab", "durvalumab",
-  "ipilimumab", "cetuximab", "rituximab",
-]);
-
-// Any term containing one of these substrings is a procedure, premedication, or
-// generic category — not the investigational asset. Skip it.
-const NOISE_SUBSTRINGS = [
-  "receptor", "antagonist", "tomography", "medication", "mouthwash", "equivalent",
-  "investigator", "choice", "imaging", "scan", "positron", "acetaminophen",
-  "dexamethasone", "steroid", "antiemetic", "premedication", "rescue", "biopsy",
-  "questionnaire", "procedure", "sugar pill", "vehicle",
-];
 
 function parseArgs(argv) {
   const args = { limit: 10, pages: 3, since: "2021-01-01", dryRun: false };
@@ -251,27 +225,6 @@ async function summarize(docUrl, form, drug, company) {
 
 // Pull distinctive drug names out of a trial's intervention list. Splits combos
 // ("Niraparib + investigational agent") and drops generic/short terms.
-function drugTerms(interventions) {
-  const out = new Map(); // lowercased -> original casing (dedupe case-insensitively)
-  for (const raw of interventions) {
-    for (const piece of String(raw).split(/[+/,]| plus | and /i)) {
-      // Drop parenthetical asides ("(or equivalent)", "(PLD)", "(CT)") plus any
-      // stray unbalanced parens before matching.
-      const term = piece.replace(/\([^)]*\)/g, "").replace(/[()]/g, "").trim();
-      const low = term.toLowerCase();
-      if (term.length < 4) continue; // too short to be distinctive
-      if (SKIP_TERMS.has(low)) continue;
-      if (NOISE_SUBSTRINGS.some((n) => low.includes(n))) continue;
-      if (/^(dose|arm|cohort|part [a-z]|group)\b/i.test(low)) continue;
-      // Ambiguous short space-codes like "CMP 001" match unrelated names
-      // (e.g. "Camp4"). Real codes are hyphenated/concatenated (CMP-001).
-      if (/^[a-z]{2,4}\s+\d{1,4}$/i.test(term)) continue;
-      if (!out.has(low)) out.set(low, term);
-    }
-  }
-  return [...out.values()];
-}
-
 // One request returns the top ~100 hits by relevance — the sponsor's own filings
 // about their drug rank at the top, so that's enough after company-filtering.
 // (Deep pagination on common drugs just re-fetches dupes and triggers 500s.)

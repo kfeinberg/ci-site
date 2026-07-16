@@ -8,6 +8,7 @@ import Database from "better-sqlite3";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { primaryDrug } from "./drugs.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -52,6 +53,38 @@ export function writeSnapshot(nowIso = new Date().toISOString()) {
         )
         .all()
     : [];
+
+  // Mechanism classifications (may not exist if classify.mjs has never run).
+  const hasClass = db
+    .prepare(`SELECT name FROM sqlite_master WHERE type='table' AND name='drug_classifications'`)
+    .get();
+  const classRows = hasClass
+    ? db
+        .prepare(
+          `SELECT drug, display_name, target, mechanism_class, modality,
+                  line_of_therapy, confidence FROM drug_classifications`
+        )
+        .all()
+    : [];
+  const classByDrug = new Map(classRows.map((r) => [r.drug, r]));
+
+  // Denormalize each trial's primary-drug classification onto the trial row so
+  // the app (and overlap logic) can read mechanism/target/modality directly.
+  for (const t of trials) {
+    let interventions = [];
+    try {
+      interventions = JSON.parse(t.interventions ?? "[]");
+    } catch {
+      interventions = [];
+    }
+    const drug = primaryDrug(interventions);
+    const c = drug ? classByDrug.get(drug.toLowerCase()) : null;
+    t.drug = drug ?? null;
+    t.mechanism_class = c?.mechanism_class ?? null;
+    t.target = c?.target ?? null;
+    t.modality = c?.modality ?? null;
+    t.line_of_therapy = c?.line_of_therapy ?? null;
+  }
 
   db.close();
 

@@ -40,6 +40,11 @@ interface TrialRow {
   countries: string | null;
   last_updated: string | null;
   dropped_at: string | null;
+  drug: string | null;
+  mechanism_class: string | null;
+  target: string | null;
+  modality: string | null;
+  line_of_therapy: string | null;
 }
 
 interface AlertRow {
@@ -110,8 +115,11 @@ function mapTrial(row: TrialRow, workspaceId: string): Trial {
     title: row.title ?? "",
     sponsor: row.sponsor ?? "Unknown",
     intervention: interventions.join(", ") || "—",
-    // No clean mechanism/MoA field from CT.gov — populated later by classification.
-    mechanism: "",
+    // Mechanism/target/modality come from the classification layer (classify.mjs).
+    mechanism: row.mechanism_class ?? "",
+    target: row.target ?? undefined,
+    modality: row.modality ?? undefined,
+    lineOfTherapy: row.line_of_therapy ?? undefined,
     indication: conditions[0] ?? "Ovarian cancer",
     phase: (row.phase ?? "N/A") as TrialPhase,
     status:

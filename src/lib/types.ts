@@ -51,7 +51,10 @@ export interface Trial {
   title: string;
   sponsor: string;
   intervention: string; // asset / drug name
-  mechanism: string; // MoA — used for overlap matching
+  mechanism: string; // MoA / mechanism class — used for overlap matching (from classification)
+  target?: string; // molecular target/antigen, e.g. "FRα", "TROP2" (from classification)
+  modality?: string; // e.g. "ADC", "small molecule" (from classification)
+  lineOfTherapy?: string; // e.g. "platinum-resistant" (from classification)
   indication: string;
   phase: TrialPhase;
   status: TrialStatus;

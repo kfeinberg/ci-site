@@ -60,10 +60,25 @@ export default function TrialDetailPage({
             </span>
           ) : null}
         </div>
+
+        {/* Mechanism classification (from classify.mjs) */}
+        {trial.mechanism || trial.target || trial.modality || trial.lineOfTherapy ? (
+          <div className="mt-3 border-t border-slate-100 pt-3">
+            <div className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              Mechanism
+            </div>
+            <div className="mt-1.5 flex flex-wrap gap-1.5">
+              {trial.mechanism ? <Chip>{trial.mechanism}</Chip> : null}
+              {trial.target ? <Chip>Target: {trial.target}</Chip> : null}
+              {trial.modality ? <Chip>{trial.modality}</Chip> : null}
+              {trial.lineOfTherapy ? <Chip>{trial.lineOfTherapy}</Chip> : null}
+            </div>
+          </div>
+        ) : null}
       </div>
 
       {/* Company communications */}
-      <div className="mt-6 flex items-baseline justify-between">
+      <div id="comms" className="mt-6 flex items-baseline justify-between scroll-mt-6">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-400">
           Company communications
         </h2>

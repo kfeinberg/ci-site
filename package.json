@@ -10,6 +10,7 @@
     "lint": "next lint",
     "scrape": "node scripts/scrape.mjs",
     "edgar": "node scripts/edgar.mjs",
+    "classify": "node scripts/classify.mjs",
     "snapshot": "node scripts/export-snapshot.mjs",
     "perturb": "node scripts/perturb.mjs",
     "test": "node --test scripts/"
