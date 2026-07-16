@@ -16,10 +16,7 @@ export default function WorkspaceAlertsPage({
   return (
     <>
       <div className="mb-4 flex items-center justify-between">
-        <p className="text-sm text-slate-500">
-          {alerts.length} alerts · {alerts.filter((a) => a.overlap).length} flagged
-          as portfolio overlaps
-        </p>
+        <p className="text-sm text-slate-500">{alerts.length} alerts</p>
         {/* TODO: filter by type / severity / overlap-only */}
       </div>
 
