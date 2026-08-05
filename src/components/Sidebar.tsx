@@ -22,6 +22,12 @@ export default function Sidebar() {
         >
           + New workspace
         </Link>
+        <Link
+          href="/engagers"
+          className="block rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+        >
+          T-Cell Engagers
+        </Link>
       </nav>
       <div className="border-t border-slate-200 px-5 py-4 text-xs text-slate-400">
         P0 — Core MVP

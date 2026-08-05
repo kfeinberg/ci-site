@@ -12,6 +12,9 @@
     "edgar": "node scripts/edgar.mjs",
     "classify": "node scripts/classify.mjs",
     "snapshot": "node scripts/export-snapshot.mjs",
+    "tce": "node scripts/tce.mjs",
+    "tce:classify": "node scripts/tce-classify.mjs",
+    "tce:snapshot": "node scripts/tce-snapshot.mjs",
     "perturb": "node scripts/perturb.mjs",
     "test": "node --test scripts/"
   },
